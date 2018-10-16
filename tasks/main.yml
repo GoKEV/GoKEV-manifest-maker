@@ -1,0 +1,46 @@
+---
+# tasks file for manifest-maker---
+
+- name: Copy the manifest_maker Perl script to the remote server
+  copy:
+    src: files/manifest_maker.pl
+    dest: /root/manifest_maker.pl
+    owner: root
+    group: wheel
+    mode: 755
+  changed_when: no
+  tags:
+    - make_manifest
+
+- name: Run manifest_maker
+  shell: "/root/manifest_maker.pl {{ item.path }} vars"
+  with_items: "{{ dirs_to_backup }}"
+  tags:
+    - make_manifest
+
+- name: Fetch the manifest
+  fetch:
+    src: "{{ item.path }}/.manifest"
+    dest: "{{ role_path }}/manifests/{{ server_instance }}-{{ item.name }}-manifest"
+    flat: yes
+  with_items: "{{ dirs_to_backup }}"
+  tags:
+    - get_manifest
+
+#- name: Fetch the manifest
+#  fetch:
+#    src: "{{ item.path }}/.manifest.csv"
+#    dest: "{{ role_path }}/manifests/{{ ansible_host }}/{{ item.path }}/.manifest.csv"
+#    flat: yes
+#  with_items: "{{ dirs_to_backup }}"
+#  tags:
+#    - get_manifest
+
+
+- name: remove manifest_maker Perl script
+  file:
+    path: /root/manifest_maker.pl
+    state: absent
+  changed_when: no
+  tags:
+    - make_manifest
