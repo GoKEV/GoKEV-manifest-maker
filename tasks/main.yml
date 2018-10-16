@@ -27,16 +27,6 @@
   tags:
     - get_manifest
 
-#- name: Fetch the manifest
-#  fetch:
-#    src: "{{ item.path }}/.manifest.csv"
-#    dest: "{{ role_path }}/manifests/{{ ansible_host }}/{{ item.path }}/.manifest.csv"
-#    flat: yes
-#  with_items: "{{ dirs_to_backup }}"
-#  tags:
-#    - get_manifest
-
-
 - name: remove manifest_maker Perl script
   file:
     path: /root/manifest_maker.pl
