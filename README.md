@@ -28,11 +28,9 @@ Here's an example of how you could launch this role
 <pre>
 [servers-to-backup]
 myserver001
-myotherserver02
 
 [servers-to-backup:vars]
 server_instance: myFriendlyServerName
-
 dirs_to_backup:
   - name: MyWebDir
     path: /var/www/html
