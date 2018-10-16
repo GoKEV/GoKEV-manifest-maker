@@ -47,6 +47,28 @@ dirs_to_backup:
   src: https://github.com/GoKEV/GoKEV-manifest-maker.git
 </pre>
 
+## Manifest files look like this:
+<pre>
+
+manifest_files: 
+  - fullpath: /var/www/MyWebSitePath/GoKEV-meme.png
+    relative: GoKEV-meme.png
+    user: kevin
+    group: kevin
+    perms: 644 
+  - fullpath: /var/www/MyWebSitePath/index.html
+    relative: index.html
+    user: kevin
+    group: kevin
+    perms: 644 
+  - fullpath: /var/www/MyWebSitePath/Kev-sings-the-blues.mp3
+    relative: Kev-sings-the-blues.mp3
+    user: kevin
+    group: kevin
+    perms: 644 
+
+</pre>
+
 ## Troubleshooting & Improvements
 
 - Not enough testing yet
