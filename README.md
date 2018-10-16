@@ -15,17 +15,29 @@ Here's an example of how you could launch this role
 
 
 <pre>---
-- name: Build a VMware guest from template
-  hosts: localhost
-  gather_facts: no
+- name: Back up a system with GoKEV-manifest-maker
+  hosts: servers-to-backup
 
   roles:
     - GoKEV.manifest-maker
 
-- hosts: newlyprovisionedvm
-  roles:
-    - kev-role-post-build-one
-    - kev-role-post-build-two
+</pre>
+
+## With a hosts file that looks sort of like this:
+
+<pre>
+[servers-to-backup]
+myserver001
+myotherserver02
+
+[servers-to-backup:vars]
+server_instance: myFriendlyServerName
+
+dirs_to_backup:
+  - name: MyWebDir
+    path: /var/www/html
+  - name: ApacheConf
+    path: /etc/http/conf
 </pre>
 
 ## With a requirements.yml that looks as such:
