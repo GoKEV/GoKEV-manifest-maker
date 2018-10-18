@@ -4,7 +4,7 @@
 
 # GoKEV-manifest-maker
 
-This project is an Ansible role to deploy to a local ESXi server or VCenter.
+This project is an Ansible role to create a manifest of files in the form of an Ansible variable array
 
 ## Example Playbooks
 Here's an example of how you could launch this role
