@@ -5,8 +5,6 @@
 # GoKEV-manifest-maker
 
 This project is an Ansible role to deploy to a local ESXi server or VCenter.
-  - This role assumes you're feeding credentials through an Ansible Tower credential type
-
 
 ## Example Playbooks
 Here's an example of how you could launch this role
