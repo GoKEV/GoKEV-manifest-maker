@@ -6,8 +6,6 @@
 
 This project is an Ansible role to deploy to a local ESXi server or VCenter.
   - This role assumes you're feeding credentials through an Ansible Tower credential type
-  - This role saves the newly provisioned VM to a temporary inventory name defined in the `defaults/main.yml`
-  - localhost.target (inventory)
 
 
 ## Example Playbooks
@@ -43,7 +41,7 @@ dirs_to_backup:
 <pre>
 ---
 - name: GoKEV.manifest-maker
-  version: latest
+  version: master
   src: https://github.com/GoKEV/GoKEV-manifest-maker.git
 </pre>
 
